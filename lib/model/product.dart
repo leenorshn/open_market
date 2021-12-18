@@ -1,19 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Product {
-  late int id;
   late String name;
-  late String price;
+  late int price;
   late String imgUrl;
-  late String description;
+  String? description;
+  DocumentReference? reference;
 
   Product(
-      {required this.id,
-      required this.name,
+      {required this.name,
       required this.price,
       required this.imgUrl,
-      required this.description});
+      this.description,
+      this.reference});
 
-  Product.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+  Product.fromSnapshot(DocumentSnapshot doc)
+      : this.fromJson(doc.data(), reference: doc.reference);
+
+  Product.fromJson(var json, {this.reference}) {
     name = json['name'];
     price = json['price'];
     imgUrl = json['imgUrl'];
@@ -22,7 +26,7 @@ class Product {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = Map<String, dynamic>();
-    data['id'] = id;
+
     data['name'] = name;
     data['price'] = price;
     data['imgUrl'] = imgUrl;

@@ -29,7 +29,6 @@ class _DetailProductState extends State<DetailProduct> {
                 floating: true,
                 expandedHeight: 250.0,
                 forceElevated: isScrolling,
-
                 flexibleSpace: FlexibleSpaceBar(
                   background: Image.asset(
                     "images/tomato.jpg",

@@ -21,7 +21,7 @@ class ProductGridTile extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                child: Image.network(product.imgUrl),
+                child: Image.asset(product.imgUrl),
               ),
               const SizedBox(
                 height: 16,
@@ -31,7 +31,7 @@ class ProductGridTile extends StatelessWidget {
               ),
               ListTile(
                 title: Text(product.name),
-                subtitle: Text(product.price),
+                subtitle: Text(product.price.toString()),
                 trailing: const Icon(CupertinoIcons.suit_heart),
               )
             ],

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:open_market/pages/category_page.dart';
 import 'package:open_market/pages/products_page.dart';
+import 'package:open_market/screen/add_product.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -44,7 +45,10 @@ class _MainPageState extends State<MainPage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xff21ce99),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => const AddProduct()));
+        },
         child: const Icon(CupertinoIcons.money_dollar),
       ),
       bottomNavigationBar: BottomNavigationBar(

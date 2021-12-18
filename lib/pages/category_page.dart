@@ -16,7 +16,7 @@ class _CategoryPageState extends State<CategoryPage> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Product>>(
-        stream: ProductApi().getProduct().asStream(),
+        stream: ProductApi().getProduct(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return const Center(

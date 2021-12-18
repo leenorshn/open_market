@@ -19,13 +19,27 @@ class _ProductsPageState extends State<ProductsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<Product>>(
-        future: ProductApi().getProduct(),
+    return StreamBuilder<List<Product>>(
+        stream: ProductApi().getProduct(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const CircularProgressIndicator();
+            print("pas de donnee *******");
+            return const Center(child: CircularProgressIndicator());
           }
 
+          if (snapshot.hasError) {
+            print(snapshot.error);
+            return Center(
+              child: Text(snapshot.error.toString()),
+            );
+          }
+          if (snapshot.data!.isEmpty) {
+            return const Center(
+              child: Text("Liste vide"),
+            );
+          }
+
+          print("ready ********");
           return ListView.separated(
             padding: const EdgeInsets.only(
               left: 10,
