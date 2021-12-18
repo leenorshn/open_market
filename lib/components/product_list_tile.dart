@@ -41,7 +41,7 @@ class ProductListTile extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 10,
+            right: 2,
             top: 10,
             child: IconButton(
               onPressed: () {

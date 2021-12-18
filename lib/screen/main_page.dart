@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:open_market/api/auth_api.dart';
 import 'package:open_market/pages/category_page.dart';
 import 'package:open_market/pages/products_page.dart';
 import 'package:open_market/screen/add_product.dart';
@@ -28,6 +29,13 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Open marcket"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                AuthApi().logout();
+              },
+              icon: const Icon(CupertinoIcons.arrow_right_square))
+        ],
       ),
       body: PageView(
         controller: _controller,

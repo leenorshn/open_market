@@ -39,7 +39,7 @@ class _AddProductState extends State<AddProduct> {
                     borderRadius: BorderRadius.circular(8),
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             TextField(
@@ -74,17 +74,18 @@ class _AddProductState extends State<AddProduct> {
                   contentPadding: const EdgeInsets.all(8),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                  )),
+                  ),),
             ),
             const SizedBox(
               height: 48,
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                  horizontal: 56,
-                  vertical: 14,
-                )),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 56,
+                    vertical: 14,
+                  ),
+                ),
                 onPressed: () {
                   Product p = Product(name: name, price: price, imgUrl: imgUrl);
                   ProductApi().addProduct(p);

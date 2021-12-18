@@ -23,12 +23,12 @@ class _ProductsPageState extends State<ProductsPage> {
         stream: ProductApi().getProduct(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            print("pas de donnee *******");
+            //print("pas de donnee *******");
             return const Center(child: CircularProgressIndicator());
           }
 
           if (snapshot.hasError) {
-            print(snapshot.error);
+            //print(snapshot.error);
             return Center(
               child: Text(snapshot.error.toString()),
             );
@@ -39,7 +39,7 @@ class _ProductsPageState extends State<ProductsPage> {
             );
           }
 
-          print("ready ********");
+          //print("ready ********");
           return ListView.separated(
             padding: const EdgeInsets.only(
               left: 10,
